@@ -79,8 +79,7 @@ func enchanttable(items [][]Item_t) [][]Item_t {
 }
 
 /*
-	升一级
-	2倍 智力，力量、敏捷、耐力、技能点
+	升一级 2倍 智力，力量、敏捷、耐力、技能点
 */
 func playerleveltable(items [][]Item_t) [][]Item_t {
 	row_n := len(items)
