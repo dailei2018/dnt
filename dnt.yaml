@@ -1,0 +1,45 @@
+
+dnt2dnt:
+  src_dir: z_ext
+  dst_dir: z_ext_patch
+
+dnt2excel:
+  src_dir: z_ext
+  dst_dir: z_out_excel
+
+excel2dnt:
+  src_dir: z_out_excel
+  dst_dir: z_out_dnt
+  
+
+names:
+  - playerweighttable
+  - rebootplayerweighttable
+  - enchanttable
+  - playerleveltable
+  - stageentertable
+  - maptable
+
+  - stagerewardtable
+  - monstertable
+
+  - skillleveltable_characterclericpve
+  - skillleveltable_characterwarriorpve
+  - skillleveltable_characteracademicpve
+  - skillleveltable_characterarcherpve
+  - skillleveltable_characterassassinpve
+  - skillleveltable_characterkalipve
+  - skillleveltable_characterlenceapve
+  - skillleveltable_charactermachinapve
+  - skillleveltable_charactersoceresspve
+
+  - skilltable_characteretc
+  - skilltable_characteracademic
+  - skilltable_characterarcher
+  - skilltable_characterassassin
+  - skilltable_charactercleric
+  - skilltable_characterkali
+  - skilltable_characterlencea
+  - skilltable_charactermachina
+  - skilltable_charactersoceress
+  - skilltable_characterwarrior
