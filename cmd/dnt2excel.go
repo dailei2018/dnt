@@ -13,6 +13,7 @@ import (
 
 	"encoding/binary"
 
+	"github.com/dailei2018/dnt/lib"
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/xuri/excelize/v2"
@@ -36,6 +37,9 @@ var dnt2excelCmd = &cobra.Command{
 
 		src_dir := config["src_dir"].(string)
 		dst_dir := config["dst_dir"].(string)
+
+		lib.Mk_dir_if_not(src_dir)
+		lib.Mk_dir_if_not(dst_dir)
 
 		//fmt.Println(len(wh_arr))
 
