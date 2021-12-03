@@ -1,6 +1,7 @@
 package lib
 
 import (
+	"fmt"
 	"os"
 
 	"github.com/sirupsen/logrus"
@@ -13,6 +14,7 @@ func Mk_dir_if_not(path string) {
 		if err != nil {
 			logrus.Fatalf("mkdir %s failed:%v\n", path, err)
 		}
+		fmt.Printf("mkdir %s\n", path)
 	} else {
 		if !s.IsDir() {
 			logrus.Fatalf("%s exits not dir\n", path)
