@@ -7,13 +7,15 @@ package cmd
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 	"strconv"
 	"strings"
 	"unsafe"
 
 	"encoding/binary"
 
-	"github.com/dailei2018/dnt/lib"
+	"dnt/lib"
+
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 	"github.com/xuri/excelize/v2"
@@ -40,6 +42,15 @@ var dnt2excelCmd = &cobra.Command{
 
 		lib.Mk_dir_if_not(src_dir)
 		lib.Mk_dir_if_not(dst_dir)
+
+		fmt.Println(All)
+
+		if All {
+			names = get_all_file(src_dir)
+			if len(names) == 0 {
+				logrus.Fatalf("no files in %s\n", src_dir)
+			}
+		}
 
 		//fmt.Println(len(wh_arr))
 
@@ -159,4 +170,21 @@ var dnt2excelCmd = &cobra.Command{
 
 func init() {
 	rootCmd.AddCommand(dnt2excelCmd)
+}
+
+func get_all_file(src_path string) []string {
+	names := make([]string, 0, 64)
+
+	err := filepath.Walk(src_path, func(path string, info os.FileInfo, err error) error {
+		if strings.Contains(info.Name(), ".dnt") {
+			names = append(names, strings.Split(info.Name(), ".")[0])
+		}
+
+		return nil
+	})
+	if err != nil {
+		panic(err)
+	}
+
+	return names
 }

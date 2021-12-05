@@ -15,7 +15,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
 
-	"github.com/dailei2018/dnt/lib"
+	"dnt/lib"
 )
 
 func dnt2item(src_path string) [][]Item_t {

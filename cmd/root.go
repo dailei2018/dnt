@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/dailei2018/dnt/lib"
+	"dnt/lib"
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
@@ -36,6 +36,7 @@ type Config struct {
 var (
 	cfgFile    string
 	MainConfig lib.Config
+	All        bool
 )
 
 var rootCmd = &cobra.Command{
@@ -61,6 +62,7 @@ func init() {
 	cobra.OnInitialize(initConfig)
 
 	rootCmd.PersistentFlags().StringVarP(&cfgFile, "config", "c", "dnt.yaml", "")
+	dnt2excelCmd.PersistentFlags().BoolVarP(&All, "all", "a", false, "all file")
 }
 
 func initConfig() {

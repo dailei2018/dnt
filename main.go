@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/dailei2018/dnt/cmd"
+	"dnt/cmd"
 )
 
 func main() {
