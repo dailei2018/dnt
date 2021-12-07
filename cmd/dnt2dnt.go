@@ -14,8 +14,6 @@ import (
 
 	"github.com/sirupsen/logrus"
 	"github.com/spf13/cobra"
-
-	"github.com/dailei2018/dnt/lib"
 )
 
 func dnt2item(src_path string) [][]Item_t {
@@ -117,8 +115,8 @@ var dnt2dntCmd = &cobra.Command{
 		src_dir := config["src_dir"].(string)
 		dst_dir := config["dst_dir"].(string)
 
-		lib.Mk_dir_if_not(src_dir)
-		lib.Mk_dir_if_not(dst_dir)
+		os.MkdirAll(src_dir, os.FileMode(0766))
+		os.MkdirAll(dst_dir, os.FileMode(0766))
 
 		for _, v := range names {
 			src_path := src_dir + "/" + v + ".dnt"
